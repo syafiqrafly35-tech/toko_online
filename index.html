@@ -38,8 +38,9 @@
             <div
                 class="bg-slate-800 rounded-2xl border border-slate-700 overflow-hidden shadow-xl hover:border-amber-500/50 transition-all duration-300 flex flex-col justify-between">
                 <div>
-                    <div class="relative h-64 overflow-hidden bg-slate-950">
-                        <img src="jendela.jpg1" alt="jendela Kusen Aluminium" class="w-full h-full object-contain">
+                    <div class="relative h-48 overflow-hidden bg-slate-950">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80"
+                            alt="Kusen Aluminium" class="w-full h-full object-cover">
                         <span
                             class="absolute top-3 left-3 bg-amber-500 text-slate-950 font-bold text-xs px-2.5 py-1 rounded-full uppercase tracking-wider shadow">Terlaris</span>
                     </div>
@@ -66,4 +67,128 @@
                         <span class="text-xs text-slate-400 block">Total Estimasi:</span>
                         <span id="total-1" class="text-lg font-extrabold text-amber-400">Rp 150.000</span>
                     </div>
-                    <a href="
+                    <a href="https://wa.me/6281234567890?text=Halo,%20saya%20mau%20pesan%20Kusen%20Aluminium%203%20Inch"
+                        target="_blank"
+                        class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2 px-4 rounded-xl text-xs transition-all duration-200 shadow-md">Pesan
+                        WA</a>
+                </div>
+            </div>
+
+            <!-- Produk 2: Jasa Bending Aluminium Lengkung -->
+            <div
+                class="bg-slate-800 rounded-2xl border border-slate-700 overflow-hidden shadow-xl hover:border-amber-500/50 transition-all duration-300 flex flex-col justify-between">
+                <div>
+                    <div class="relative h-48 overflow-hidden bg-slate-950">
+                        <img src="https://images.unsplash.com/photo-1541888946425-d0fbb18f86f5?auto=format&fit=crop&w=600&q=80"
+                            alt="Bending Aluminium" class="w-full h-full object-cover">
+                        <span
+                            class="absolute top-3 left-3 bg-blue-500 text-white font-bold text-xs px-2.5 py-1 rounded-full uppercase tracking-wider shadow">Layanan
+                            Utama</span>
+                    </div>
+                    <div class="p-5">
+                        <div class="text-xs text-amber-400 font-semibold uppercase tracking-wider mb-1">Bending Custom
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Jasa Bending Aluminium Lengkung</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Pengerjaan bending/pembengkokan profil
+                            aluminium presisi tinggi untuk bentuk arch, setengah lingkaran, atau sudut custom.</p>
+
+                        <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-700/60 mb-3">
+                            <label
+                                class="block text-xs text-amber-400 font-semibold mb-1 uppercase tracking-wider">Volume
+                                (Titik / Unit):</label>
+                            <div class="flex items-center gap-2">
+                                <input type="number" id="volume-2" min="1" value="1" oninput="hitungHarga(2, 250000)"
+                                    class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-amber-500">
+                                <span class="text-xs text-slate-400 whitespace-nowrap">titik</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-5 pt-0 border-t border-slate-700/50 mt-2 flex items-center justify-between gap-4">
+                    <div>
+                        <span class="text-xs text-slate-400 block">Total Estimasi:</span>
+                        <span id="total-2" class="text-lg font-extrabold text-amber-400">Rp 250.000</span>
+                    </div>
+                    <a href="https://wa.me/6281234567890?text=Halo,%20saya%20mau%20pesan%20Jasa%20Bending%20Aluminium"
+                        target="_blank"
+                        class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2 px-4 rounded-xl text-xs transition-all duration-200 shadow-md">Pesan
+                        WA</a>
+                </div>
+            </div>
+
+            <!-- Produk 3: Jendela Aluminium Custom (Foto Asli Workshop Vertikal Utuh) -->
+            <div
+                class="bg-slate-800 rounded-2xl border border-slate-700 overflow-hidden shadow-xl hover:border-amber-500/50 transition-all duration-300 flex flex-col justify-between">
+                <div>
+                    <div class="relative h-80 overflow-hidden bg-slate-950 flex items-center justify-center p-2">
+                        <img src="jendela.jpg1" alt="Jendela Aluminium Custom"
+                            class="max-h-full max-w-full object-contain rounded-lg shadow-md">
+                        <span
+                            class="absolute top-3 left-3 bg-amber-500 text-slate-950 font-bold text-xs px-2.5 py-1 rounded-full uppercase tracking-wider shadow">Foto
+                            Asli Workshop</span>
+                    </div>
+                    <div class="p-5">
+                        <div class="text-xs text-amber-400 font-semibold uppercase tracking-wider mb-1">Jendela & Kusen
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Jendela Aluminium Custom</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-3">Pembuatan jendela aluminium berkualitas
+                            dengan finishing rapi dan presisi sesuai pesanan.</p>
+
+                        <!-- Thumbnail Galeri Foto Asli Lainnya -->
+                        <div class="mb-3">
+                            <span class="text-[10px] text-slate-400 block mb-1">Dokumentasi Workshop:</span>
+                            <div class="grid grid-cols-4 gap-1.5">
+                                <img src="jendela.jpg2" alt="Detail"
+                                    class="w-full h-10 object-cover rounded border border-slate-700">
+                                <img src="jendela.jpg3" alt="Detail"
+                                    class="w-full h-10 object-cover rounded border border-slate-700">
+                                <img src="jendela.jpg4" alt="Detail"
+                                    class="w-full h-10 object-cover rounded border border-slate-700">
+                                <img src="jendela.jpg5" alt="Detail"
+                                    class="w-full h-10 object-cover rounded border border-slate-700">
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-700/60 mb-3">
+                            <label
+                                class="block text-xs text-amber-400 font-semibold mb-1 uppercase tracking-wider">Simulasi
+                                Hitung (Unit):</label>
+                            <div class="flex items-center gap-2">
+                                <input type="number" id="volume-3" min="1" value="1" oninput="hitungHarga(3, 450000)"
+                                    class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-amber-500">
+                                <span class="text-xs text-slate-400 whitespace-nowrap">unit</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-5 pt-0 border-t border-slate-700/50 mt-2 flex items-center justify-between gap-4">
+                    <div>
+                        <span class="text-xs text-slate-400 block">Total Estimasi:</span>
+                        <span id="total-3" class="text-lg font-extrabold text-amber-400">Rp 450.000</span>
+                    </div>
+                    <a href="https://wa.me/6281234567890?text=Halo,%20saya%20mau%20pesan%20Jendela%20Aluminium%20Custom%20sesuai%20foto%20workshop"
+                        target="_blank"
+                        class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2 px-4 rounded-xl text-xs transition-all duration-200 shadow-md">Pesan
+                        WA</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800 py-6 text-center text-xs text-slate-400">
+        <p>&copy; 2026 Workshop Bending & Kusen Aluminium. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Script Kalkulator Sederhana -->
+    <script>
+        function hitungHarga(id, hargaSatuan) {
+            const volume = document.getElementById('volume-' + id).value;
+            const total = volume * hargaSatuan;
+            document.getElementById('total-' + id).innerText = 'Rp ' + total.toLocaleString('id-ID');
+        }
+    </script>
+</body>
+
+</html>
