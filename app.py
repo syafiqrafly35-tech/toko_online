@@ -8,7 +8,7 @@ PRODUCTS = [
         "id": 1,
         "nama": "Kusen Aluminium 3 Inch",
         "kategori": "Kusen",
-        "harga_estimasi": 95000,
+        "harga_dasar": 95000,
         "satuan": "meter lari",
         "badge": "Terlaris",
         "gambar": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
@@ -19,7 +19,7 @@ PRODUCTS = [
         "id": 2,
         "nama": "Jasa Bending Aluminium Lengkung",
         "kategori": "Bending Custom",
-        "harga_estimasi": 150000,
+        "harga_dasar": 150000,
         "satuan": "titik / meter",
         "badge": "Layanan Utama",
         "gambar": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80",
@@ -30,7 +30,7 @@ PRODUCTS = [
         "id": 3,
         "nama": "Pintu Frame Aluminium Glass",
         "kategori": "Pintu & Jendela",
-        "harga_estimasi": 1850000,
+        "harga_dasar": 1850000,
         "satuan": "unit lengkap",
         "badge": "Premium",
         "gambar": "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80",
@@ -41,7 +41,7 @@ PRODUCTS = [
         "id": 4,
         "nama": "Jendela Casement / Swing",
         "kategori": "Pintu & Jendela",
-        "harga_estimasi": 750000,
+        "harga_dasar": 750000,
         "satuan": "unit",
         "badge": "Populer",
         "gambar": "https://images.unsplash.com/photo-1503708998063-fb28b70427ed?auto=format&fit=crop&w=800&q=80",
@@ -53,86 +53,116 @@ PRODUCTS = [
 
 @app.route("/")
 def home():
-  # Render HTML Langsung (Inline HTML untuk Vercel Serverless)
   html_content = f"""
     <!DOCTYPE html>
     <html lang="id">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Spesialis Bending Aluminium & Kusen</title>
+        <title>Katalog & Kalkulator Kusen Aluminium Bending</title>
         <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            // Fungsi Kalkulator Estimasi Otomatis
+            function hitungHarga(id, hargaDasar) {{
+                let inputVolume = document.getElementById('volume-' + id).value;
+                let hasilSpan = document.getElementById('total-' + id);
+                let btnWa = document.getElementById('btn-wa-' + id);
+                
+                let volume = parseFloat(inputVolume) || 0;
+                let total = volume * hargaDasar;
+                
+                // Format ke Rupiah
+                let formatRupiah = new Intl.NumberFormat('id-ID', {{ style: 'currency', currency: 'IDR', maximumFractionDigits: 0}}).format(total);
+                hasilSpan.innerText = formatRupiah;
+                
+                // Update link WhatsApp otomatis dengan data hitungan
+                let namaProduk = document.getElementById('nama-produk-' + id).innerText;
+                let pesan = `Halo, saya mau pesan ${namaProduk} dengan volume ${volume} (${id === 2 ? 'titik/meter' : 'meter/unit'}). Total estimasi Rp ${total.toLocaleString('id-ID')}. Mohon info lanjut.`;
+                btnWa.href = "https://wa.me/6281234567890?text=" + encodeURIComponent(pesan);
+            }}
+        </script>
     </head>
     <body class="bg-slate-900 text-slate-100 min-h-screen font-sans antialiased">
 
-        <!-- Header / Hero Section -->
-        <header class="bg-slate-800 border-b border-slate-700 py-10 px-4 sm:px-6">
+        <!-- Header -->
+        <header class="bg-slate-800 border-b border-slate-700 py-10 px-4 sm:px-6 shadow-md">
             <div class="max-w-6xl mx-auto text-center">
                 <span class="bg-amber-500/10 text-amber-400 text-xs font-semibold px-3 py-1 rounded-full border border-amber-500/20 uppercase tracking-wider">
-                    Workshop & Bending Aluminium
+                    Workshop & Bending Aluminium Profesional
                 </span>
                 <h1 class="text-3xl sm:text-5xl font-extrabold text-white mt-4 mb-3 tracking-tight">
-                    Katalog Kusen & Jasa Bending Aluminium
+                    Katalog & Kalkulator Estimasi Kusen
                 </h1>
                 <p class="text-slate-400 max-w-2xl mx-auto text-base sm:text-lg">
-                    Layanan pembengkokan (bending) profil aluminium presisi, pembuatan kusen, pintu, dan jendela custom untuk bangunan & perumahan.
+                    Pilih jenis produk, masukkan ukuran atau volume kebutuhan bangunan Anda, dan hitung estimasi biayanya secara instan!
                 </p>
             </div>
         </header>
 
-        <!-- Product Grid Catalog -->
+        <!-- Product Grid & Calculator -->
         <main class="max-w-6xl mx-auto py-12 px-4 sm:px-6">
             <div class="flex items-center justify-between mb-8">
-                <h2 class="text-2xl font-bold text-white tracking-wide">Daftar Produk & Layanan</h2>
-                <span class="text-sm text-slate-400">{len(PRODUCTS)} Pilihan Layanan</span>
+                <h2 class="text-2xl font-bold text-white tracking-wide">Pilihan Produk & Layanan</h2>
+                <span class="text-sm text-slate-400">{len(PRODUCTS)} Layanan Tersedia</span>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
     """
 
   for p in PRODUCTS:
-    # Format harga ke Rupiah
-    harga_formatted = f"Rp {p['harga_estimasi']:,}".replace(",", ".")
-
-    # Pilihan warna badge
+    harga_formatted = f"Rp {p['harga_dasar']:,}".replace(",", ".")
     warna_tags = "".join([
         f'<span class="bg-slate-700 text-slate-300 text-xs px-2.5 py-1 rounded-md">{w}</span>'
         for w in p["pilihan_warna"]
     ])
 
     html_content += f"""
-                <div class="bg-slate-800 rounded-2xl border border-slate-700 overflow-hidden shadow-lg hover:border-amber-500/50 transition-all duration-300 flex flex-col justify-between">
+                <div class="bg-slate-800 rounded-2xl border border-slate-700 overflow-hidden shadow-xl hover:border-amber-500/50 transition-all duration-300 flex flex-col justify-between">
                     <div>
-                        <div class="relative h-64 overflow-hidden bg-slate-950">
+                        <div class="relative h-60 overflow-hidden bg-slate-950">
                             <img src="{p['gambar']}" alt="{p['nama']}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
-                            <span class="absolute top-4 left-4 bg-amber-500 text-slate-950 font-bold text-xs px-3 py-1 rounded-full uppercase tracking-wider">
+                            <span class="absolute top-4 left-4 bg-amber-500 text-slate-950 font-bold text-xs px-3 py-1 rounded-full uppercase tracking-wider shadow">
                                 {p['badge']}
                             </span>
                         </div>
                         <div class="p-6">
                             <div class="text-xs text-amber-400 font-semibold uppercase tracking-wider mb-1">{p['kategori']}</div>
-                            <h3 class="text-xl font-bold text-white mb-2">{p['nama']}</h3>
+                            <h3 id="nama-produk-{p['id']}" class="text-xl font-bold text-white mb-2">{p['nama']}</h3>
                             <p class="text-slate-400 text-sm leading-relaxed mb-4">{p['deskripsi']}</p>
                             
                             <div class="mb-4">
-                                <span class="text-xs text-slate-400 block mb-1">Pilihan Warna / Spesifikasi:</span>
+                                <span class="text-xs text-slate-400 block mb-1">Spesifikasi / Warna Tersedia:</span>
                                 <div class="flex flex-wrap gap-2">
                                     {warna_tags}
+                                </div>
+                            </div>
+
+                            <!-- Kalkulator Mini per Produk -->
+                            <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-700/60 mb-4">
+                                <label class="block text-xs text-amber-400 font-semibold mb-1 uppercase tracking-wider">
+                                    Simulasi Hitung Estimasi ({p['satuan']}):
+                                </label>
+                                <div class="flex items-center gap-3">
+                                    <input type="number" id="volume-{p['id']}" placeholder="Masukkan jumlah/panjang" min="1" value="1" 
+                                           oninput="hitungHarga({p['id']}, {p['harga_dasar']})"
+                                           class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-amber-500">
+                                    <span class="text-xs text-slate-400 whitespace-nowrap">{p['satuan']}</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="p-6 pt-0 border-t border-slate-700/50 mt-4 flex items-center justify-between gap-4">
+                    <!-- Footer Kartu & Tombol Order WA -->
+                    <div class="p-6 pt-0 border-t border-slate-700/50 mt-2 flex items-center justify-between gap-4">
                         <div>
-                            <span class="text-xs text-slate-400 block">Estimasi Biaya:</span>
-                            <span class="text-xl font-extrabold text-amber-400">{harga_formatted}</span>
-                            <span class="text-xs text-slate-400"> / {p['satuan']}</span>
+                            <span class="text-xs text-slate-400 block">Total Estimasi:</span>
+                            <span id="total-{p['id']}" class="text-xl font-extrabold text-amber-400">{harga_formatted}</span>
                         </div>
-                        <a href="https://wa.me/6281234567890?text=Halo,%20saya%20mau%20tanya%20detail%20dan%20estimasi%20harga%20untuk%20{p['nama']}" 
+                        <a id="btn-wa-{p['id']}" 
+                           href="https://wa.me/6281234567890?text=Halo,%20saya%20mau%20pesan%20{p['nama']}%20dengan%20volume%201%20{p['satuan']}" 
                            target="_blank" 
-                           class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 px-4 rounded-xl text-sm transition-all duration-200 shadow-md flex items-center gap-2">
-                            Tanya / Order
+                           class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 px-5 rounded-xl text-sm transition-all duration-200 shadow-md flex items-center gap-2">
+                            Pesan via WA
                         </a>
                     </div>
                 </div>
