@@ -72,7 +72,7 @@
                 </div>
             </div>
 
-            <!-- Card 2: Kusen 4 Inch & Bending All-In (Rp 275rb/mtr) -->
+            <!-- Card 2: Kusen 4 Inch & Bending All-In (FOTO FOKUS KUSEN ALUMINIUM) -->
             <div
                 class="bg-slate-800 border border-slate-700 rounded-xl overflow-hidden shadow-lg flex flex-col justify-between">
                 <div>
@@ -80,8 +80,9 @@
                         <span
                             class="absolute top-3 left-3 bg-blue-500 text-white font-bold text-xs px-2.5 py-1 rounded z-10">PREMIUM
                             / BENDING</span>
-                        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80"
-                            alt="Kusen 4 Inch" class="w-full h-full object-cover">
+                        <!-- Ganti foto ke sudut pandang kusen jendela aluminium yang tegas & estetik -->
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=600&q=80"
+                            alt="Kusen Aluminium 4 Inch" class="w-full h-full object-cover">
                     </div>
                     <div class="p-5">
                         <span class="text-xs font-semibold text-blue-400 uppercase tracking-wider">Kusen Tebal &
@@ -94,7 +95,7 @@
                             <label class="block text-xs font-bold text-slate-300 mb-1">SIMULASI (METER /
                                 LONJOR):</label>
                             <div class="flex items-center">
-                                <input type="number" id="qty2" value="1" min="1" oninput="calculate()"
+                                <input type="number" id="qty2" value="1.2" step="0.1" min="0.1" oninput="calculate()"
                                     class="w-full bg-slate-800 border border-slate-600 rounded px-3 py-1.5 text-sm text-white focus:outline-none focus:border-amber-500">
                                 <span class="ml-2 text-xs text-slate-400">mtr</span>
                             </div>
@@ -104,7 +105,7 @@
                 <div class="p-5 pt-0 flex justify-between items-center mt-4">
                     <div>
                         <span class="text-xs text-slate-400 block">Total Estimasi:</span>
-                        <span id="total2" class="text-lg font-bold text-amber-400">Rp 275.000</span>
+                        <span id="total2" class="text-lg font-bold text-amber-400">Rp 330.000</span>
                     </div>
                     <a id="btnWa2" href="#" target="_blank"
                         class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs px-4 py-2.5 rounded-lg transition">Pesan
@@ -112,7 +113,7 @@
                 </div>
             </div>
 
-            <!-- Card 3: Jendela & Kusen (DENGAN SLIDER FOTO ASLI WORKSHOP) -->
+            <!-- Card 3: Kusen 4 Inch / Bending Lengkung (DENGAN SLIDER FOTO ASLI WORKSHOP) -->
             <div
                 class="bg-slate-800 border border-slate-700 rounded-xl overflow-hidden shadow-lg flex flex-col justify-between">
                 <div>
@@ -157,18 +158,19 @@
                                 class="thumb-img h-12 w-full object-cover rounded border-2 border-transparent opacity-60 cursor-pointer hover:opacity-100 transition">
                         </div>
 
-                        <span class="text-xs font-semibold text-amber-500 uppercase tracking-wider">Jendela &
-                            Kusen</span>
-                        <h3 class="text-lg font-bold text-white mt-1">Jendela Aluminium Custom</h3>
-                        <p class="text-xs text-slate-400 mt-1">Pembuatan jendela aluminium berkualitas dengan finishing
-                            rapi dan presisi sesuai pesanan.</p>
+                        <span class="text-xs font-semibold text-amber-500 uppercase tracking-wider">Spesial Bending
+                            Lengkung</span>
+                        <h3 class="text-lg font-bold text-white mt-1">Kusen 4 Inch Bending All-In</h3>
+                        <p class="text-xs text-slate-400 mt-1">Pengerjaan bending lengkung profil 4 inch (include
+                            coating & jepitan bahan). Harga Rp 275.000 / meter.</p>
 
                         <div class="mt-4 bg-slate-900/80 p-3 rounded-lg border border-slate-700/50">
-                            <label class="block text-xs font-bold text-slate-300 mb-1">SIMULASI HITUNG (UNIT):</label>
+                            <label class="block text-xs font-bold text-slate-300 mb-1">SIMULASI (METER /
+                                LONJOR):</label>
                             <div class="flex items-center">
-                                <input type="number" id="qty3" value="1" min="1" oninput="calculate()"
+                                <input type="number" id="qty3" value="1.2" step="0.1" min="0.1" oninput="calculate()"
                                     class="w-full bg-slate-800 border border-slate-600 rounded px-3 py-1.5 text-sm text-white focus:outline-none focus:border-amber-500">
-                                <span class="ml-2 text-xs text-slate-400">unit</span>
+                                <span class="ml-2 text-xs text-slate-400">mtr</span>
                             </div>
                         </div>
                     </div>
@@ -176,7 +178,7 @@
                 <div class="p-5 pt-0 flex justify-between items-center mt-2">
                     <div>
                         <span class="text-xs text-slate-400 block">Total Estimasi:</span>
-                        <span id="total3" class="text-lg font-bold text-amber-400">Rp 450.000</span>
+                        <span id="total3" class="text-lg font-bold text-amber-400">Rp 330.000</span>
                     </div>
                     <a id="btnWa3" href="#" target="_blank"
                         class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs px-4 py-2.5 rounded-lg transition">Pesan
@@ -198,7 +200,7 @@
         </div>
     </div>
 
-    <!-- JavaScript Logika -->
+    <!-- JavaScript Logika Hitung -->
     <script>
         // Ganti nomor WhatsApp lu di sini (format 62...)
         const phone = "6281234567890";
@@ -246,24 +248,24 @@
 
         function calculate() {
             const price1 = 225000; // 3 Inch per meter
-            const price2 = 275000; // 4 Inch / Bending All-in per meter
-            const price3 = 450000; // Jendela custom per unit
+            const price2 = 275000; // 4 Inch standar per meter
+            const price3 = 275000; // 4 Inch Bending All-in per meter
 
-            const q1 = Math.max(1, parseInt(document.getElementById("qty1").value) || 1);
-            const q2 = Math.max(1, parseInt(document.getElementById("qty2").value) || 1);
-            const q3 = Math.max(1, parseInt(document.getElementById("qty3").value) || 1);
+            const q1 = Math.max(0.1, parseFloat(document.getElementById("qty1").value) || 1);
+            const q2 = Math.max(0.1, parseFloat(document.getElementById("qty2").value) || 1);
+            const q3 = Math.max(0.1, parseFloat(document.getElementById("qty3").value) || 1.2);
 
             const tot1 = q1 * price1;
             const tot2 = q2 * price2;
             const tot3 = q3 * price3;
 
-            document.getElementById("total1").innerText = "Rp " + tot1.toLocaleString("id-ID");
-            document.getElementById("total2").innerText = "Rp " + tot2.toLocaleString("id-ID");
-            document.getElementById("total3").innerText = "Rp " + tot3.toLocaleString("id-ID");
+            document.getElementById("total1").innerText = "Rp " + Math.round(tot1).toLocaleString("id-ID");
+            document.getElementById("total2").innerText = "Rp " + Math.round(tot2).toLocaleString("id-ID");
+            document.getElementById("total3").innerText = "Rp " + Math.round(tot3).toLocaleString("id-ID");
 
-            document.getElementById("btnWa1").href = `https://wa.me/${phone}?text=${encodeURIComponent(`Halo, saya mau pesan Kusen Aluminium 3 Inch sebanyak ${q1} meter (Estimasi: Rp ${tot1.toLocaleString("id-ID")}).`)}`;
-            document.getElementById("btnWa2").href = `https://wa.me/${phone}?text=${encodeURIComponent(`Halo, saya mau pesan Kusen Aluminium 4 Inch / Bending All-In sebanyak ${q2} meter (Estimasi: Rp ${tot2.toLocaleString("id-ID")}).`)}`;
-            document.getElementById("btnWa3").href = `https://wa.me/${phone}?text=${encodeURIComponent(`Halo, saya mau pesan Jendela Aluminium Custom sebanyak ${q3} unit (Estimasi: Rp ${tot3.toLocaleString("id-ID")}).`)}`;
+            document.getElementById("btnWa1").href = `https://wa.me/${phone}?text=${encodeURIComponent(`Halo, saya mau pesan Kusen Aluminium 3 Inch sebanyak ${q1} meter (Estimasi: Rp ${Math.round(tot1).toLocaleString("id-ID")}).`)}`;
+            document.getElementById("btnWa2").href = `https://wa.me/${phone}?text=${encodeURIComponent(`Halo, saya mau pesan Kusen Aluminium 4 Inch sebanyak ${q2} meter (Estimasi: Rp ${Math.round(tot2).toLocaleString("id-ID")}).`)}`;
+            document.getElementById("btnWa3").href = `https://wa.me/${phone}?text=${encodeURIComponent(`Halo, saya mau pesan Kusen 4 Inch Bending All-In sebanyak ${q3} meter (Estimasi: Rp ${Math.round(tot3).toLocaleString("id-ID")}).`)}`;
         }
 
         // Run on init
