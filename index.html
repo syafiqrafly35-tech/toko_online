@@ -110,7 +110,7 @@
                 </div>
             </div>
 
-            <!-- Card 3: Jendela & Kusen (DENGAN SLIDER SLIDE & ZOOM FOTO) -->
+            <!-- Card 3: Jendela & Kusen (DENGAN SLIDER & FOTO LOKAL WORKSHOP) -->
             <div
                 class="bg-slate-800 border border-slate-700 rounded-xl overflow-hidden shadow-lg flex flex-col justify-between">
                 <div>
@@ -120,9 +120,7 @@
                             class="absolute top-3 left-3 bg-amber-500 text-slate-950 font-bold text-xs px-2.5 py-1 rounded z-10">FOTO
                             ASLI WORKSHOP</span>
 
-                        <img id="mainImg"
-                            src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80"
-                            alt="Foto Workshop"
+                        <img id="mainImg" src="jendela.jpg1" alt="Foto Workshop"
                             class="w-full h-full object-cover transition-all duration-300 group-hover:scale-105">
 
                         <!-- Hover Zoom Hint -->
@@ -143,21 +141,17 @@
                     </div>
 
                     <div class="p-5">
-                        <!-- Thumbnails Gallery -->
+                        <!-- Thumbnails Gallery (Menyesuaikan 4 foto pertama dari 5 foto yang ada) -->
                         <span class="text-xs text-slate-400 block mb-1.5 font-medium">Dokumentasi Workshop (Klik
                             Foto):</span>
                         <div class="grid grid-cols-4 gap-2 mb-4">
-                            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80"
-                                onclick="setSlide(0)"
+                            <img src="jendela.jpg1" onclick="setSlide(0)"
                                 class="thumb-img h-12 w-full object-cover rounded border-2 border-transparent opacity-60 cursor-pointer hover:opacity-100 transition thumbnail-active">
-                            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80"
-                                onclick="setSlide(1)"
+                            <img src="jendela.jpg2" onclick="setSlide(1)"
                                 class="thumb-img h-12 w-full object-cover rounded border-2 border-transparent opacity-60 cursor-pointer hover:opacity-100 transition">
-                            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80"
-                                onclick="setSlide(2)"
+                            <img src="jendela.jpg3" onclick="setSlide(2)"
                                 class="thumb-img h-12 w-full object-cover rounded border-2 border-transparent opacity-60 cursor-pointer hover:opacity-100 transition">
-                            <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=600&q=80"
-                                onclick="setSlide(3)"
+                            <img src="jendela.jpg4" onclick="setSlide(3)"
                                 class="thumb-img h-12 w-full object-cover rounded border-2 border-transparent opacity-60 cursor-pointer hover:opacity-100 transition">
                         </div>
 
@@ -208,10 +202,10 @@
         const phone = "6281234567890";
 
         const photos = [
-            "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80",
-            "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
-            "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80",
-            "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=600&q=80"
+            "jendela.jpg1",
+            "jendela.jpg2",
+            "jendela.jpg3",
+            "jendela.jpg4"
         ];
 
         let currentSlide = 0;
