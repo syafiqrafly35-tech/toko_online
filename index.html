@@ -4,168 +4,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Katalog & Kalkulator Estimasi Kusen & Aluminium</title>
+    <title>Katalog & Kalkulator Estimasi Kusen</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .thumbnail-active {
+            border-color: #f59e0b !important;
+            opacity: 1 !important;
+        }
+    </style>
 </head>
 
-<body class="bg-slate-900 text-slate-100 font-sans min-h-screen flex flex-col justify-between">
+<body class="bg-slate-900 text-slate-100 min-h-screen font-sans pb-12">
 
-    <!-- Header / Banner -->
-    <header class="bg-slate-950 border-b border-slate-800 py-6 px-4 text-center">
-        <div class="max-w-4xl mx-auto">
-            <span
-                class="text-xs uppercase tracking-widest text-amber-500 font-bold bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">Workshop
-                & Bending Aluminium Profesional</span>
-            <h1 class="text-3xl md:text-4xl font-extrabold text-white mt-3 mb-2">Katalog & Kalkulator Estimasi Kusen
-            </h1>
-            <p class="text-slate-400 text-sm md:text-base">Pilih jenis produk, masukkan ukuran atau volume kebutuhan
-                bangunan Anda, dan hitung estimasi biayanya secara instan!</p>
-        </div>
+    <!-- Header -->
+    <header class="text-center py-10 px-4 border-b border-slate-800 bg-slate-950">
+        <h1 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">Katalog & Kalkulator Estimasi Kusen
+        </h1>
+        <p class="text-slate-400 mt-2 text-sm md:text-base">Pilih jenis produk, masukkan ukuran atau volume kebutuhan
+            bangunan Anda, dan hitung estimasi biayanya secara instan!</p>
     </header>
 
-    <!-- Main Container Katalog -->
-    <main class="max-w-5xl mx-auto px-4 py-8 w-full flex-grow">
-        <div class="mb-6 flex items-center justify-between">
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 mt-8">
+        <div class="flex justify-between items-center mb-6">
             <h2 class="text-xl font-bold text-white border-l-4 border-amber-500 pl-3">Pilihan Produk & Layanan</h2>
-            <span class="text-xs text-slate-400 bg-slate-800 px-3 py-1 rounded-lg border border-slate-700">3 Layanan
-                Tersedia</span>
+            <span class="text-xs text-slate-400 bg-slate-800 px-3 py-1 rounded-full">3 Layanan tersedia</span>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Product Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-            <!-- Produk 1 -->
+            <!-- Card 1: Kusen 3 Inch -->
             <div
-                class="bg-slate-800 rounded-2xl border border-slate-700 overflow-hidden shadow-xl hover:border-amber-500/50 transition-all duration-300 flex flex-col justify-between">
+                class="bg-slate-800 border border-slate-700 rounded-xl overflow-hidden shadow-lg flex flex-col justify-between">
                 <div>
                     <div class="relative h-48 overflow-hidden bg-slate-950">
-                        <img src="jendela.jpg1" alt="Kusen Aluminium" class="w-full h-full object-cover">
                         <span
-                            class="absolute top-3 left-3 bg-amber-500 text-slate-950 font-bold text-xs px-2.5 py-1 rounded-full uppercase tracking-wider shadow">Terlaris</span>
+                            class="absolute top-3 left-3 bg-amber-500 text-slate-950 font-bold text-xs px-2.5 py-1 rounded z-10">TERLARIS</span>
+                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80"
+                            alt="Kusen 3 Inch" class="w-full h-full object-cover">
                     </div>
                     <div class="p-5">
-                        <div class="text-xs text-amber-400 font-semibold uppercase tracking-wider mb-1">Kusen</div>
-                        <h3 class="text-lg font-bold text-white mb-2">Kusen Aluminium 3 Inch</h3>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Kusen aluminium profil 3 inch cocok untuk
-                            pintu & jendela rumah tinggal. Tahan rayap, presisi, dan tahan cuaca.</p>
+                        <span class="text-xs font-semibold text-amber-500 uppercase tracking-wider">Kusen</span>
+                        <h3 class="text-lg font-bold text-white mt-1">Kusen Aluminium 3 Inch</h3>
+                        <p class="text-xs text-slate-400 mt-2">Kusen aluminium profil 3 inch cocok untuk pintu & jendela
+                            rumah tinggal. Tahan rayap, presisi, dan tahan cuaca.</p>
 
-                        <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-700/60 mb-3">
-                            <label
-                                class="block text-xs text-amber-400 font-semibold mb-1 uppercase tracking-wider">Volume
-                                (Meter / Lonjor):</label>
-                            <div class="flex items-center gap-2">
-                                <input type="number" id="volume-1" min="1" value="1" oninput="hitungHarga(1, 150000)"
-                                    class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-amber-500">
-                                <span class="text-xs text-slate-400 whitespace-nowrap">mtr</span>
+                        <div class="mt-4 bg-slate-900/80 p-3 rounded-lg border border-slate-700/50">
+                            <label class="block text-xs font-bold text-slate-300 mb-1">SIMULASI (METER /
+                                LONJOR):</label>
+                            <div class="flex items-center">
+                                <input type="number" id="qty1" value="1" min="1" oninput="calculate()"
+                                    class="w-full bg-slate-800 border border-slate-600 rounded px-3 py-1.5 text-sm text-white focus:outline-none focus:border-amber-500">
+                                <span class="ml-2 text-xs text-slate-400">mtr</span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="p-5 pt-0 border-t border-slate-700/50 mt-2 flex items-center justify-between gap-4">
+                <div class="p-5 pt-0 flex justify-between items-center mt-4">
                     <div>
                         <span class="text-xs text-slate-400 block">Total Estimasi:</span>
-                        <span id="total-1" class="text-lg font-extrabold text-amber-400">Rp 150.000</span>
+                        <span id="total1" class="text-lg font-bold text-amber-400">Rp 150.000</span>
                     </div>
-                    <a href="https://wa.me/6281234567890?text=Halo,%20saya%20mau%20pesan%20Kusen%20Aluminium%203%20Inch"
-                        target="_blank"
-                        class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2 px-4 rounded-xl text-xs transition-all duration-200 shadow-md">Pesan
+                    <a id="btnWa1" href="#" target="_blank"
+                        class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs px-4 py-2.5 rounded-lg transition">Pesan
                         WA</a>
                 </div>
             </div>
 
-            <!-- Produk 2 -->
+            <!-- Card 2: Bending Custom -->
             <div
-                class="bg-slate-800 rounded-2xl border border-slate-700 overflow-hidden shadow-xl hover:border-amber-500/50 transition-all duration-300 flex flex-col justify-between">
+                class="bg-slate-800 border border-slate-700 rounded-xl overflow-hidden shadow-lg flex flex-col justify-between">
                 <div>
                     <div class="relative h-48 overflow-hidden bg-slate-950">
-                        <img src="jendela.jpg2" alt="Bending Aluminium" class="w-full h-full object-cover">
                         <span
-                            class="absolute top-3 left-3 bg-blue-500 text-white font-bold text-xs px-2.5 py-1 rounded-full uppercase tracking-wider shadow">Layanan
-                            Utama</span>
+                            class="absolute top-3 left-3 bg-blue-500 text-white font-bold text-xs px-2.5 py-1 rounded z-10">LAYANAN
+                            UTAMA</span>
+                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80"
+                            alt="Bending Custom" class="w-full h-full object-cover">
                     </div>
                     <div class="p-5">
-                        <div class="text-xs text-amber-400 font-semibold uppercase tracking-wider mb-1">Bending Custom
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2">Jasa Bending Aluminium Lengkung</h3>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Pengerjaan bending/pembengkokan profil
-                            aluminium presisi tinggi untuk bentuk arch, setengah lingkaran, atau sudut custom.</p>
+                        <span class="text-xs font-semibold text-blue-400 uppercase tracking-wider">Bending Custom</span>
+                        <h3 class="text-lg font-bold text-white mt-1">Jasa Bending Aluminium Lengkung</h3>
+                        <p class="text-xs text-slate-400 mt-2">Pengerjaan bending/pembengkokan profil aluminium presisi
+                            tinggi untuk bentuk arch, setengah lingkaran, atau sudut custom.</p>
 
-                        <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-700/60 mb-3">
-                            <label
-                                class="block text-xs text-amber-400 font-semibold mb-1 uppercase tracking-wider">Volume
-                                (Titik / Unit):</label>
-                            <div class="flex items-center gap-2">
-                                <input type="number" id="volume-2" min="1" value="1" oninput="hitungHarga(2, 250000)"
-                                    class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-amber-500">
-                                <span class="text-xs text-slate-400 whitespace-nowrap">titik</span>
+                        <div class="mt-4 bg-slate-900/80 p-3 rounded-lg border border-slate-700/50">
+                            <label class="block text-xs font-bold text-slate-300 mb-1">SIMULASI (TITIK / UNIT):</label>
+                            <div class="flex items-center">
+                                <input type="number" id="qty2" value="1" min="1" oninput="calculate()"
+                                    class="w-full bg-slate-800 border border-slate-600 rounded px-3 py-1.5 text-sm text-white focus:outline-none focus:border-amber-500">
+                                <span class="ml-2 text-xs text-slate-400">unit</span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="p-5 pt-0 border-t border-slate-700/50 mt-2 flex items-center justify-between gap-4">
+                <div class="p-5 pt-0 flex justify-between items-center mt-4">
                     <div>
                         <span class="text-xs text-slate-400 block">Total Estimasi:</span>
-                        <span id="total-2" class="text-lg font-extrabold text-amber-400">Rp 250.000</span>
+                        <span id="total2" class="text-lg font-bold text-amber-400">Rp 250.000</span>
                     </div>
-                    <a href="https://wa.me/6281234567890?text=Halo,%20saya%20mau%20pesan%20Jasa%20Bending%20Aluminium"
-                        target="_blank"
-                        class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2 px-4 rounded-xl text-xs transition-all duration-200 shadow-md">Pesan
+                    <a id="btnWa2" href="#" target="_blank"
+                        class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs px-4 py-2.5 rounded-lg transition">Pesan
                         WA</a>
                 </div>
             </div>
 
-            <!-- Produk 3: Jendela Aluminium Custom (Foto Workshop Asli) -->
+            <!-- Card 3: Jendela & Kusen (DENGAN SLIDER SLIDE & ZOOM FOTO) -->
             <div
-                class="bg-slate-800 rounded-2xl border border-slate-700 overflow-hidden shadow-xl hover:border-amber-500/50 transition-all duration-300 flex flex-col justify-between">
+                class="bg-slate-800 border border-slate-700 rounded-xl overflow-hidden shadow-lg flex flex-col justify-between">
                 <div>
-                    <div class="relative h-80 overflow-hidden bg-slate-950 flex items-center justify-center p-2">
-                        <img src="jendela.jpg3" alt="Jendela Aluminium Custom"
-                            class="max-h-full max-w-full object-contain rounded-lg shadow-md">
+                    <!-- Slider Main Image -->
+                    <div class="relative h-48 overflow-hidden bg-slate-950 group cursor-pointer" onclick="openModal()">
                         <span
-                            class="absolute top-3 left-3 bg-amber-500 text-slate-950 font-bold text-xs px-2.5 py-1 rounded-full uppercase tracking-wider shadow">Foto
-                            Asli Workshop</span>
+                            class="absolute top-3 left-3 bg-amber-500 text-slate-950 font-bold text-xs px-2.5 py-1 rounded z-10">FOTO
+                            ASLI WORKSHOP</span>
+
+                        <img id="mainImg"
+                            src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80"
+                            alt="Foto Workshop"
+                            class="w-full h-full object-cover transition-all duration-300 group-hover:scale-105">
+
+                        <!-- Hover Zoom Hint -->
+                        <div
+                            class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-xs text-white font-bold">
+                            🔍 Klik untuk Memperbesar
+                        </div>
+
+                        <!-- Slide Arrows -->
+                        <button onclick="event.stopPropagation(); changeSlide(-1)"
+                            class="absolute left-2 top-1/2 -translate-y-1/2 bg-slate-900/70 hover:bg-slate-900 text-white p-1.5 rounded-full z-10">
+                            ❮
+                        </button>
+                        <button onclick="event.stopPropagation(); changeSlide(1)"
+                            class="absolute right-2 top-1/2 -translate-y-1/2 bg-slate-900/70 hover:bg-slate-900 text-white p-1.5 rounded-full z-10">
+                            ❯
+                        </button>
                     </div>
+
                     <div class="p-5">
-                        <div class="text-xs text-amber-400 font-semibold uppercase tracking-wider mb-1">Jendela & Kusen
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2">Jendela Aluminium Custom</h3>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-3">Pembuatan jendela aluminium berkualitas
-                            dengan finishing rapi dan presisi sesuai pesanan.</p>
-
-                        <!-- Thumbnail Galeri -->
-                        <div class="mb-3">
-                            <span class="text-[10px] text-slate-400 block mb-1">Dokumentasi Workshop:</span>
-                            <div class="grid grid-cols-4 gap-1.5">
-                                <img src="jendela.jpg2" alt="Detail"
-                                    class="w-full h-10 object-cover rounded border border-slate-700">
-                                <img src="jendela.jpg3" alt="Detail"
-                                    class="w-full h-10 object-cover rounded border border-slate-700">
-                                <img src="jendela.jpg4" alt="Detail"
-                                    class="w-full h-10 object-cover rounded border border-slate-700">
-                                <img src="jendela.jpg5" alt="Detail"
-                                    class="w-full h-10 object-cover rounded border border-slate-700">
-                            </div>
+                        <!-- Thumbnails Gallery -->
+                        <span class="text-xs text-slate-400 block mb-1.5 font-medium">Dokumentasi Workshop (Klik
+                            Foto):</span>
+                        <div class="grid grid-cols-4 gap-2 mb-4">
+                            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80"
+                                onclick="setSlide(0)"
+                                class="thumb-img h-12 w-full object-cover rounded border-2 border-transparent opacity-60 cursor-pointer hover:opacity-100 transition thumbnail-active">
+                            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80"
+                                onclick="setSlide(1)"
+                                class="thumb-img h-12 w-full object-cover rounded border-2 border-transparent opacity-60 cursor-pointer hover:opacity-100 transition">
+                            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80"
+                                onclick="setSlide(2)"
+                                class="thumb-img h-12 w-full object-cover rounded border-2 border-transparent opacity-60 cursor-pointer hover:opacity-100 transition">
+                            <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=600&q=80"
+                                onclick="setSlide(3)"
+                                class="thumb-img h-12 w-full object-cover rounded border-2 border-transparent opacity-60 cursor-pointer hover:opacity-100 transition">
                         </div>
 
-                        <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-700/60 mb-3">
-                            <label
-                                class="block text-xs text-amber-400 font-semibold mb-1 uppercase tracking-wider">Simulasi
-                                Hitung (Unit):</label>
-                            <div class="flex items-center gap-2">
-                                <input type="number" id="volume-3" min="1" value="1" oninput="hitungHarga(3, 450000)"
-                                    class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-amber-500">
-                                <span class="text-xs text-slate-400 whitespace-nowrap">unit</span>
+                        <span class="text-xs font-semibold text-amber-500 uppercase tracking-wider">Jendela &
+                            Kusen</span>
+                        <h3 class="text-lg font-bold text-white mt-1">Jendela Aluminium Custom</h3>
+                        <p class="text-xs text-slate-400 mt-1">Pembuatan jendela aluminium berkualitas dengan finishing
+                            rapi dan presisi sesuai pesanan.</p>
+
+                        <div class="mt-4 bg-slate-900/80 p-3 rounded-lg border border-slate-700/50">
+                            <label class="block text-xs font-bold text-slate-300 mb-1">SIMULASI HITUNG (UNIT):</label>
+                            <div class="flex items-center">
+                                <input type="number" id="qty3" value="1" min="1" oninput="calculate()"
+                                    class="w-full bg-slate-800 border border-slate-600 rounded px-3 py-1.5 text-sm text-white focus:outline-none focus:border-amber-500">
+                                <span class="ml-2 text-xs text-slate-400">unit</span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="p-5 pt-0 border-t border-slate-700/50 mt-2 flex items-center justify-between gap-4">
+                <div class="p-5 pt-0 flex justify-between items-center mt-2">
                     <div>
                         <span class="text-xs text-slate-400 block">Total Estimasi:</span>
-                        <span id="total-3" class="text-lg font-extrabold text-amber-400">Rp 450.000</span>
+                        <span id="total3" class="text-lg font-bold text-amber-400">Rp 450.000</span>
                     </div>
-                    <a href="https://wa.me/6281234567890?text=Halo,%20saya%20mau%20pesan%20Jendela%20Aluminium%20Custom"
-                        target="_blank"
-                        class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2 px-4 rounded-xl text-xs transition-all duration-200 shadow-md">Pesan
+                    <a id="btnWa3" href="#" target="_blank"
+                        class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs px-4 py-2.5 rounded-lg transition">Pesan
                         WA</a>
                 </div>
             </div>
@@ -173,18 +191,87 @@
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-slate-950 border-t border-slate-800 py-6 text-center text-xs text-slate-400">
-        <p>&copy; 2026 Workshop Bending & Kusen Aluminium. All Rights Reserved.</p>
-    </footer>
+    <!-- Modal Popup Zoom Foto Gede -->
+    <div id="imageModal" class="fixed inset-0 bg-black/90 hidden z-50 flex items-center justify-center p-4"
+        onclick="closeModal()">
+        <div class="relative max-w-4xl w-full max-h-[90vh] flex flex-col items-center">
+            <button onclick="closeModal()"
+                class="absolute -top-10 right-0 text-white text-2xl font-bold hover:text-amber-500">✕ Tutup</button>
+            <img id="modalImg" src="" class="max-w-full max-h-[80vh] object-contain rounded-lg border border-slate-700">
+            <p class="text-slate-300 text-xs mt-3">Klik di mana saja untuk menutup</p>
+        </div>
+    </div>
 
-    <!-- Script Kalkulator -->
+    <!-- JavaScript Logika -->
     <script>
-        function hitungHarga(id, hargaSatuan) {
-            const volume = document.getElementById('volume-' + id).value;
-            const total = volume * hargaSatuan;
-            document.getElementById('total-' + id).innerText = 'Rp ' + total.toLocaleString('id-ID');
+        // Nomor WA sales lu (Ganti angka ini dengan nomor WA lu)
+        const phone = "6281234567890";
+
+        const photos = [
+            "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80",
+            "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+            "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80",
+            "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=600&q=80"
+        ];
+
+        let currentSlide = 0;
+
+        function setSlide(index) {
+            currentSlide = index;
+            const mainImg = document.getElementById("mainImg");
+            const thumbs = document.querySelectorAll(".thumb-img");
+
+            mainImg.src = photos[currentSlide];
+
+            thumbs.forEach((t, i) => {
+                if (i === currentSlide) {
+                    t.classList.add("thumbnail-active");
+                } else {
+                    t.classList.remove("thumbnail-active");
+                }
+            });
         }
+
+        function changeSlide(direction) {
+            currentSlide = (currentSlide + direction + photos.length) % photos.length;
+            setSlide(currentSlide);
+        }
+
+        function openModal() {
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImg");
+            modalImg.src = photos[currentSlide];
+            modal.classList.remove("hidden");
+        }
+
+        function closeModal() {
+            document.getElementById("imageModal").classList.add("hidden");
+        }
+
+        function calculate() {
+            const price1 = 150000;
+            const price2 = 250000;
+            const price3 = 450000;
+
+            const q1 = Math.max(1, parseInt(document.getElementById("qty1").value) || 1);
+            const q2 = Math.max(1, parseInt(document.getElementById("qty2").value) || 1);
+            const q3 = Math.max(1, parseInt(document.getElementById("qty3").value) || 1);
+
+            const tot1 = q1 * price1;
+            const tot2 = q2 * price2;
+            const tot3 = q3 * price3;
+
+            document.getElementById("total1").innerText = "Rp " + tot1.toLocaleString("id-ID");
+            document.getElementById("total2").innerText = "Rp " + tot2.toLocaleString("id-ID");
+            document.getElementById("total3").innerText = "Rp " + tot3.toLocaleString("id-ID");
+
+            document.getElementById("btnWa1").href = `https://wa.me/${phone}?text=${encodeURIComponent(`Halo, saya mau pesan Kusen Aluminium 3 Inch sebanyak ${q1} meter (Estimasi: Rp ${tot1.toLocaleString("id-ID")}).`)}`;
+            document.getElementById("btnWa2").href = `https://wa.me/${phone}?text=${encodeURIComponent(`Halo, saya mau pesan Jasa Bending Aluminium Lengkung sebanyak ${q2} unit (Estimasi: Rp ${tot2.toLocaleString("id-ID")}).`)}`;
+            document.getElementById("btnWa3").href = `https://wa.me/${phone}?text=${encodeURIComponent(`Halo, saya mau pesan Jendela Aluminium Custom sebanyak ${q3} unit (Estimasi: Rp ${tot3.toLocaleString("id-ID")}).`)}`;
+        }
+
+        // Run on init
+        calculate();
     </script>
 </body>
 
