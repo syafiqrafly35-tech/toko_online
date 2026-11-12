@@ -9,6 +9,17 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome untuk ikon WhatsApp -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Menyembunyikan scrollbar jelek tapi tetap bisa digeser mulus */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
 </head>
 
 <body class="bg-slate-900 text-slate-100 min-h-screen font-sans pb-20">
@@ -20,38 +31,34 @@
             <p class="text-slate-400">Katalog produk dan kalkulator estimasi harga otomatis</p>
         </header>
 
-        <!-- Galeri Foto (Grid 3 Kolom) -->
+        <!-- Galeri Foto -->
         <div class="bg-slate-800 p-4 rounded-xl shadow-lg mb-8">
-            <!-- Gambar Besar / Preview -->
-            <div class="mb-4">
+            <!-- Gambar Besar / Preview (Klik untuk Zoom) -->
+            <div class="mb-4 relative">
                 <img id="mainImg" src="jendela1.jpg" alt="Preview Jendela"
-                    class="w-full h-64 md:h-80 object-cover rounded-lg cursor-pointer shadow-md"
+                    class="w-full h-64 md:h-80 object-cover rounded-lg cursor-pointer shadow-md transition-all hover:opacity-95"
                     onclick="openModal(this.src)">
+                <p class="text-center text-xs text-slate-400 mt-2"><i class="fas fa-search-plus mr-1"></i> Klik foto
+                    besar untuk zoom • Geser foto kecil di bawah ke samping</p>
             </div>
 
-            <!-- Daftar Thumbnail Foto (3 Kolom ke Bawah, Total 7 Foto) -->
-            <div class="grid grid-cols-3 gap-3">
+            <!-- Daftar Thumbnail Foto (Jejer ke Samping, Tampil 3 Foto per Layar & Bisa di-Slide) -->
+            <div class="flex gap-3 overflow-x-auto pb-2 snap-x no-scrollbar">
                 <img src="jendela1.jpg"
-                    class="thumb-img w-full h-24 object-cover rounded-md cursor-pointer border-2 border-blue-500 hover:opacity-80 transition-all"
+                    class="thumb-img w-[31%] shrink-0 snap-start h-24 md:h-28 object-cover rounded-md cursor-pointer border-2 border-blue-500 hover:opacity-80 transition-all"
                     onclick="setSlide(0)">
                 <img src="jendela2.jpg"
-                    class="thumb-img w-full h-24 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-blue-500 hover:opacity-80 transition-all"
+                    class="thumb-img w-[31%] shrink-0 snap-start h-24 md:h-28 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-blue-500 hover:opacity-80 transition-all"
                     onclick="setSlide(1)">
                 <img src="jendela3.jpg"
-                    class="thumb-img w-full h-24 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-blue-500 hover:opacity-80 transition-all"
+                    class="thumb-img w-[31%] shrink-0 snap-start h-24 md:h-28 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-blue-500 hover:opacity-80 transition-all"
                     onclick="setSlide(2)">
                 <img src="jendela4.jpg"
-                    class="thumb-img w-full h-24 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-blue-500 hover:opacity-80 transition-all"
+                    class="thumb-img w-[31%] shrink-0 snap-start h-24 md:h-28 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-blue-500 hover:opacity-80 transition-all"
                     onclick="setSlide(3)">
                 <img src="jendela5.jpg"
-                    class="thumb-img w-full h-24 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-blue-500 hover:opacity-80 transition-all"
+                    class="thumb-img w-[31%] shrink-0 snap-start h-24 md:h-28 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-blue-500 hover:opacity-80 transition-all"
                     onclick="setSlide(4)">
-                <img src="jendela6.jpg"
-                    class="thumb-img w-full h-24 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-blue-500 hover:opacity-80 transition-all"
-                    onclick="setSlide(5)">
-                <img src="jendela7.jpg"
-                    class="thumb-img w-full h-24 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-blue-500 hover:opacity-80 transition-all"
-                    onclick="setSlide(6)">
             </div>
         </div>
 
@@ -100,11 +107,12 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Modal Gambar Fullscreen -->
+    <!-- Modal / Zoom Gambar Fullscreen -->
     <div id="imageModal" class="fixed inset-0 bg-black/90 hidden z-50 flex items-center justify-center p-4"
         onclick="closeModal()">
         <div class="relative max-w-4xl w-full">
-            <img id="modalImg" src="" class="w-full max-h-[85vh] object-contain rounded-lg">
+            <img id="modalImg" src="" class="w-full max-h-[85vh] object-contain rounded-lg shadow-2xl">
+            <p class="text-center text-slate-300 mt-3 text-sm">Klik di mana saja untuk menutup</p>
         </div>
     </div>
 
@@ -123,9 +131,7 @@
             "jendela2.jpg",
             "jendela3.jpg",
             "jendela4.jpg",
-            "jendela5.jpg",
-            "jendela6.jpg",
-            "jendela7.jpg"
+            "jendela5.jpg"
         ];
 
         let currentSlide = 0;
