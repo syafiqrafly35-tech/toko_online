@@ -20,7 +20,7 @@
             <p class="text-slate-400">Katalog produk dan kalkulator estimasi harga otomatis</p>
         </header>
 
-        <!-- Galeri Foto (Tampilan Utama & Grid 3 Kolom untuk Thumbnail) -->
+        <!-- Galeri Foto (Grid 3 Kolom) -->
         <div class="bg-slate-800 p-4 rounded-xl shadow-lg mb-8">
             <!-- Gambar Besar / Preview -->
             <div class="mb-4">
@@ -29,7 +29,7 @@
                     onclick="openModal(this.src)">
             </div>
 
-            <!-- Daftar Thumbnail Foto (Grid 3 Kolom) -->
+            <!-- Daftar Thumbnail Foto (3 Kolom ke Bawah, Total 7 Foto) -->
             <div class="grid grid-cols-3 gap-3">
                 <img src="jendela1.jpg"
                     class="thumb-img w-full h-24 object-cover rounded-md cursor-pointer border-2 border-blue-500 hover:opacity-80 transition-all"
@@ -46,6 +46,12 @@
                 <img src="jendela5.jpg"
                     class="thumb-img w-full h-24 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-blue-500 hover:opacity-80 transition-all"
                     onclick="setSlide(4)">
+                <img src="jendela6.jpg"
+                    class="thumb-img w-full h-24 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-blue-500 hover:opacity-80 transition-all"
+                    onclick="setSlide(5)">
+                <img src="jendela7.jpg"
+                    class="thumb-img w-full h-24 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-blue-500 hover:opacity-80 transition-all"
+                    onclick="setSlide(6)">
             </div>
         </div>
 
@@ -104,10 +110,8 @@
 
     <!-- JavaScript Logika & Kalkulator -->
     <script>
-        // Ganti nomor WhatsApp di sini (format 62...)
         const phone = "6281314362685";
 
-        // Pasang link WhatsApp otomatis ke tombol mengambang
         document.addEventListener("DOMContentLoaded", function () {
             const floatingWa = document.getElementById("floatingWa");
             const pesanKonsul = "Halo, saya ingin berkonsultasi mengenai pemesanan kusen aluminium.";
@@ -119,7 +123,9 @@
             "jendela2.jpg",
             "jendela3.jpg",
             "jendela4.jpg",
-            "jendela5.jpg"
+            "jendela5.jpg",
+            "jendela6.jpg",
+            "jendela7.jpg"
         ];
 
         let currentSlide = 0;
@@ -174,7 +180,6 @@
             const totalHarga = hargaPerMeter * volume;
             const formatRupiah = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(totalHarga);
 
-            // Tampilkan hasil
             const hasilDiv = document.getElementById("hasilKalkulator");
             const teksHasil = document.getElementById("teksHasil");
             const btnWa = document.getElementById("btnWa");
