@@ -26,26 +26,39 @@
     <!-- Container Utama -->
     <div class="max-w-4xl mx-auto px-4 py-8">
         <header class="text-center mb-8">
-            <h1 class="text-3xl font-bold mb-2">Workshop Aluminium & Kusen</h1>
-            <p class="text-slate-400 mb-3">Spesialis Pembuatan Kusen, Pintu, Jendela Aluminium & Bending Berkualitas
-                Tinggi</p>
-            <!-- Badge Info Pengerjaan -->
-            <div
-                class="inline-flex items-center gap-2 bg-slate-800 border border-slate-700 px-4 py-1.5 rounded-full text-sm text-blue-400 shadow-sm">
-                <i class="fas fa-clock"></i> Estimasi Pengerjaan: <span class="text-white font-semibold">± 7 Hari
-                    Kerja</span>
+            <h1 class="text-3xl md:text-4xl font-extrabold mb-2 tracking-tight">Workshop Aluminium & Kusen</h1>
+            <p class="text-slate-400 text-sm md:text-base mb-4 max-w-xl mx-auto">Spesialis Pembuatan & Pemasangan Kusen,
+                Pintu, Jendela Aluminium serta Bending Lengkung Berpengalaman dengan Standar Kualitas Tinggi.</p>
+
+            <!-- Badge Info Profesional & Keunggulan -->
+            <div class="flex flex-wrap justify-center gap-2 text-xs md:text-sm">
+                <div
+                    class="bg-slate-800 border border-slate-700 px-3 py-1.5 rounded-full text-blue-400 shadow-sm flex items-center gap-1.5">
+                    <i class="fas fa-clock"></i> Pengerjaan: <span class="text-white font-semibold">± 7 Hari
+                        Kerja</span>
+                </div>
+                <div
+                    class="bg-slate-800 border border-slate-700 px-3 py-1.5 rounded-full text-green-400 shadow-sm flex items-center gap-1.5">
+                    <i class="fas fa-check-circle"></i> <span class="text-white font-semibold">Bahan Premium & Anti
+                        Rayap</span>
+                </div>
+                <div
+                    class="bg-slate-800 border border-slate-700 px-3 py-1.5 rounded-full text-amber-400 shadow-sm flex items-center gap-1.5">
+                    <i class="fas fa-handshake"></i> <span class="text-white font-semibold">Konsultasi & Survei
+                        Gratis</span>
+                </div>
             </div>
         </header>
 
         <!-- Galeri Foto -->
-        <div class="bg-slate-800 p-4 rounded-xl shadow-lg mb-8">
+        <div class="bg-slate-800 p-4 rounded-xl shadow-lg mb-8 border border-slate-700/50">
             <!-- Gambar Besar / Preview (Klik untuk Zoom) -->
             <div class="mb-4 relative">
                 <img id="mainImg" src="jendela1.jpg" alt="Preview Jendela"
                     class="w-full h-64 md:h-80 object-cover rounded-lg cursor-pointer shadow-md transition-all hover:opacity-95"
                     onclick="openModal(this.src)">
                 <p class="text-center text-xs text-slate-400 mt-2"><i class="fas fa-search-plus mr-1"></i> Klik foto
-                    besar untuk memperbesar (zoom) • Geser foto kecil di bawah ke samping</p>
+                    besar untuk memperbesar (zoom) • Geser galeri kecil di bawah ke samping</p>
             </div>
 
             <!-- Daftar Thumbnail Foto (Jejer ke Samping / Slider) -->
@@ -69,10 +82,10 @@
         </div>
 
         <!-- Kalkulator Estimasi Harga -->
-        <div class="bg-slate-800 p-6 rounded-xl shadow-lg">
-            <h2 class="text-xl font-semibold mb-2">Kalkulator Estimasi Harga</h2>
-            <p class="text-slate-400 text-sm mb-4">Hitung perkiraan biaya kebutuhan aluminium Anda secara instan dan
-                langsung konsultasikan via WhatsApp.</p>
+        <div class="bg-slate-800 p-6 rounded-xl shadow-lg border border-slate-700/50">
+            <h2 class="text-xl font-semibold mb-1">Kalkulator Estimasi Harga</h2>
+            <p class="text-slate-400 text-sm mb-4">Hitung perkiraan biaya kebutuhan proyek Anda secara transparan dan
+                instan.</p>
 
             <form onsubmit="calculate(event); return false;" class="space-y-4">
                 <div>
@@ -93,15 +106,17 @@
                 </div>
 
                 <button type="submit"
-                    class="w-full bg-blue-600 hover:bg-blue-500 text-white font-medium py-2.5 rounded-lg transition-colors">
+                    class="w-full bg-blue-600 hover:bg-blue-500 text-white font-medium py-2.5 rounded-lg transition-colors shadow-md">
                     Hitung Estimasi & Pesan
                 </button>
             </form>
 
-            <div id="hasilKalkulator" class="mt-6 p-4 bg-slate-700 rounded-lg hidden">
+            <div id="hasilKalkulator" class="mt-6 p-4 bg-slate-700 rounded-lg hidden border border-slate-600">
                 <p id="teksHasil" class="mb-3 text-lg font-medium"></p>
+                <p class="text-xs text-slate-300 mb-3"><i class="fas fa-info-circle mr-1 text-blue-400"></i> Estimasi
+                    pengerjaan standar ± 7 hari kerja setelah konfirmasi pesanan.</p>
                 <a id="btnWa" href="#" target="_blank"
-                    class="inline-block bg-green-600 hover:bg-green-500 text-white font-medium px-4 py-2 rounded-lg transition-colors">
+                    class="inline-block bg-green-600 hover:bg-green-500 text-white font-medium px-4 py-2 rounded-lg transition-colors shadow-md">
                     <i class="fab fa-whatsapp mr-2"></i> Kirim Pesanan via WhatsApp
                 </a>
             </div>
