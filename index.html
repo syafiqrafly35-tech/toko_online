@@ -20,25 +20,32 @@
             <p class="text-slate-400">Katalog produk dan kalkulator estimasi harga otomatis</p>
         </header>
 
-        <!-- Galeri Foto / Slider -->
+        <!-- Galeri Foto (Tampilan Utama & Grid 3 Kolom untuk Thumbnail) -->
         <div class="bg-slate-800 p-4 rounded-xl shadow-lg mb-8">
+            <!-- Gambar Besar / Preview -->
             <div class="mb-4">
                 <img id="mainImg" src="jendela1.jpg" alt="Preview Jendela"
-                    class="w-full h-64 object-cover rounded-lg cursor-pointer" onclick="openModal(this.src)">
+                    class="w-full h-64 md:h-80 object-cover rounded-lg cursor-pointer shadow-md"
+                    onclick="openModal(this.src)">
             </div>
-            <div class="flex gap-2 overflow-x-auto pb-2">
+
+            <!-- Daftar Thumbnail Foto (Grid 3 Kolom) -->
+            <div class="grid grid-cols-3 gap-3">
                 <img src="jendela1.jpg"
-                    class="thumb-img w-20 h-20 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-blue-500 thumbnail-active"
+                    class="thumb-img w-full h-24 object-cover rounded-md cursor-pointer border-2 border-blue-500 hover:opacity-80 transition-all"
                     onclick="setSlide(0)">
                 <img src="jendela2.jpg"
-                    class="thumb-img w-20 h-20 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-blue-500"
+                    class="thumb-img w-full h-24 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-blue-500 hover:opacity-80 transition-all"
                     onclick="setSlide(1)">
                 <img src="jendela3.jpg"
-                    class="thumb-img w-20 h-20 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-blue-500"
+                    class="thumb-img w-full h-24 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-blue-500 hover:opacity-80 transition-all"
                     onclick="setSlide(2)">
                 <img src="jendela4.jpg"
-                    class="thumb-img w-20 h-20 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-blue-500"
+                    class="thumb-img w-full h-24 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-blue-500 hover:opacity-80 transition-all"
                     onclick="setSlide(3)">
+                <img src="jendela5.jpg"
+                    class="thumb-img w-full h-24 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-blue-500 hover:opacity-80 transition-all"
+                    onclick="setSlide(4)">
             </div>
         </div>
 
@@ -50,7 +57,7 @@
                 <div>
                     <label class="block text-sm font-medium mb-1">Pilih Jenis / Kategori:</label>
                     <select id="tipeAluminium"
-                        class="w-full bg-slate-700 border border-slate-600 rounded-lg p-2.5 text-white">
+                        class="w-full bg-slate-700 border border-slate-600 rounded-lg p-2.5 text-white focus:outline-none focus:border-blue-500">
                         <option value="1">3 Inch (Rp 225.000 / meter)</option>
                         <option value="2">4 Inch Standar (Rp 275.000 / meter)</option>
                         <option value="3">Bending All-in (Rp 275.000 / meter)</option>
@@ -60,7 +67,8 @@
                 <div>
                     <label class="block text-sm font-medium mb-1">Panjang / Volume (meter):</label>
                     <input type="number" id="volume" step="0.1" placeholder="Contoh: 2.5"
-                        class="w-full bg-slate-700 border border-slate-600 rounded-lg p-2.5 text-white" required>
+                        class="w-full bg-slate-700 border border-slate-600 rounded-lg p-2.5 text-white focus:outline-none focus:border-blue-500"
+                        required>
                 </div>
 
                 <button type="submit"
@@ -69,7 +77,7 @@
                 </button>
             </form>
 
-            <div id="hasil Kalkulator" class="mt-6 p-4 bg-slate-700 rounded-lg hidden">
+            <div id="hasilKalkulator" class="mt-6 p-4 bg-slate-700 rounded-lg hidden">
                 <p id="teksHasil" class="mb-3 text-lg font-medium"></p>
                 <a id="btnWa" href="#" target="_blank"
                     class="inline-block bg-green-600 hover:bg-green-500 text-white font-medium px-4 py-2 rounded-lg transition-colors">
@@ -86,7 +94,7 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Modal Gambar -->
+    <!-- Modal Gambar Fullscreen -->
     <div id="imageModal" class="fixed inset-0 bg-black/90 hidden z-50 flex items-center justify-center p-4"
         onclick="closeModal()">
         <div class="relative max-w-4xl w-full">
@@ -96,10 +104,10 @@
 
     <!-- JavaScript Logika & Kalkulator -->
     <script>
-        // GANTI NOMOR WHATSAPP LU DI SINI (format 62...)
+        // Ganti nomor WhatsApp di sini (format 62...)
         const phone = "6281314362685";
 
-        // Otomatis pasang link WhatsApp ke tombol mengambang saat halaman dimuat
+        // Pasang link WhatsApp otomatis ke tombol mengambang
         document.addEventListener("DOMContentLoaded", function () {
             const floatingWa = document.getElementById("floatingWa");
             const pesanKonsul = "Halo, saya ingin berkonsultasi mengenai pemesanan kusen aluminium.";
@@ -111,8 +119,7 @@
             "jendela2.jpg",
             "jendela3.jpg",
             "jendela4.jpg",
-            "jendela5.jpg",
-            "jendela6.jpg"
+            "jendela5.jpg"
         ];
 
         let currentSlide = 0;
@@ -158,21 +165,17 @@
 
             if (tipe === "2") {
                 hargaPerMeter = 275000;
-                namaTippy = "4 Inch Standar";
+                namaTipe = "4 Inch Standar";
             } else if (tipe === "3") {
                 hargaPerMeter = 275000;
                 namaTipe = "Bending All-in";
-            }
-
-            if (tipe === "2") {
-                namaTipe = "4 Inch Standar";
             }
 
             const totalHarga = hargaPerMeter * volume;
             const formatRupiah = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(totalHarga);
 
             // Tampilkan hasil
-            const hasilDiv = document.getElementById("hasil Kalkulator");
+            const hasilDiv = document.getElementById("hasilKalkulator");
             const teksHasil = document.getElementById("teksHasil");
             const btnWa = document.getElementById("btnWa");
 
