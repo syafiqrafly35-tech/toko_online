@@ -61,23 +61,29 @@
                     besar untuk memperbesar (zoom) • Geser galeri kecil di bawah ke samping</p>
             </div>
 
-            <!-- Daftar Thumbnail Foto (Jejer ke Samping / Slider) -->
+            <!-- Daftar Thumbnail Foto (Jejer ke Samping / Slider - Total 7 Foto) -->
             <div class="flex gap-3 overflow-x-auto pb-2 snap-x no-scrollbar">
                 <img src="jendela1.jpg"
                     class="thumb-img w-[31%] shrink-0 snap-start h-24 md:h-28 object-cover rounded-md cursor-pointer border-2 border-blue-500 hover:opacity-80 transition-all"
-                    onclick="setSlide(0)">
+                    onclick="setSlide(0)" title="Foto 1">
                 <img src="jendela2.jpg"
                     class="thumb-img w-[31%] shrink-0 snap-start h-24 md:h-28 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-blue-500 hover:opacity-80 transition-all"
-                    onclick="setSlide(1)">
+                    onclick="setSlide(1)" title="Foto 2">
                 <img src="jendela3.jpg"
                     class="thumb-img w-[31%] shrink-0 snap-start h-24 md:h-28 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-blue-500 hover:opacity-80 transition-all"
-                    onclick="setSlide(2)">
+                    onclick="setSlide(2)" title="Foto 3">
                 <img src="jendela4.jpg"
                     class="thumb-img w-[31%] shrink-0 snap-start h-24 md:h-28 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-blue-500 hover:opacity-80 transition-all"
-                    onclick="setSlide(3)">
+                    onclick="setSlide(3)" title="Foto 4">
                 <img src="jendela5.jpg"
                     class="thumb-img w-[31%] shrink-0 snap-start h-24 md:h-28 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-blue-500 hover:opacity-80 transition-all"
-                    onclick="setSlide(4)">
+                    onclick="setSlide(4)" title="Foto 5">
+                <img src="jendela6.jpg"
+                    class="thumb-img w-[31%] shrink-0 snap-start h-24 md:h-28 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-blue-500 hover:opacity-80 transition-all"
+                    onclick="setSlide(5)" title="Contoh Bending 1">
+                <img src="jendela7.jpg"
+                    class="thumb-img w-[31%] shrink-0 snap-start h-24 md:h-28 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-blue-500 hover:opacity-80 transition-all"
+                    onclick="setSlide(6)" title="Contoh Bending 2">
             </div>
         </div>
 
@@ -154,7 +160,9 @@
             "jendela2.jpg",
             "jendela3.jpg",
             "jendela4.jpg",
-            "jendela5.jpg"
+            "jendela5.jpg",
+            "jendela6.jpg",
+            "jendela7.jpg"
         ];
 
         let currentSlide = 0;
