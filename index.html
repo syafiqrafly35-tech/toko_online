@@ -4,265 +4,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Katalog & Kalkulator Estimasi Kusen Aluminium</title>
+    <title>Katalog & Kalkulator Kusen Aluminium</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .thumbnail-active {
-            border-color: #f59e0b !important;
-            opacity: 1 !important;
-        }
-    </style>
 </head>
 
 <body class="bg-slate-900 text-slate-100 min-h-screen font-sans pb-20">
 
-    <!-- Header & Keunggulan Workshop -->
-    <header class="text-center py-10 px-4 border-b border-slate-800 bg-slate-950">
-        <span
-            class="inline-block bg-amber-500/10 text-amber-400 border border-amber-500/30 text-xs font-bold px-3 py-1 rounded-full mb-3 tracking-wide uppercase">
-            Spesialis Kusen Aluminium & Bending Lengkung
-        </span>
-        <h1 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">Katalog & Kalkulator Estimasi Kusen
-        </h1>
-        <p class="text-slate-400 mt-2 text-sm md:text-base max-w-2xl mx-auto">
-            Pilih profil aluminium, masukkan estimasi ukuran atau panjang meteran kebutuhan bangunan Anda, dan hitung
-            biayanya secara transparan!
-        </p>
+    <!-- Container Utama -->
+    <div class="max-w-4xl mx-auto px-4 py-8">
+        <header class="text-center mb-8">
+            <h1 class="text-3xl font-bold mb-2">Workshop Aluminium & Kusen</h1>
+            <p class="text-slate-400">Katalog produk dan kalkulator estimasi harga otomatis</p>
+        </header>
 
-        <!-- 3 Badge Keunggulan -->
-        <div class="flex flex-wrap justify-center gap-3 mt-6 max-w-3xl mx-auto">
-            <div
-                class="bg-slate-900 border border-slate-700/80 px-3.5 py-2 rounded-lg flex items-center gap-2 text-xs font-semibold text-slate-200 shadow-sm">
-                <span class="text-amber-400 text-base">⚡</span> Estimasi Pengerjaan ± 7 Hari Siap Kirim
+        <!-- Galeri Foto / Slider -->
+        <div class="bg-slate-800 p-4 rounded-xl shadow-lg mb-8">
+            <div class="mb-4">
+                <img id="mainImg" src="jendela1.jpg" alt="Preview Jendela"
+                    class="w-full h-64 object-cover rounded-lg cursor-pointer" onclick="openModal(this.src)">
             </div>
-            <div
-                class="bg-slate-900 border border-slate-700/80 px-3.5 py-2 rounded-lg flex items-center gap-2 text-xs font-semibold text-slate-200 shadow-sm">
-                <span class="text-blue-400 text-base">📐</span> Presisi Mesin Bending & Coating
-            </div>
-            <div
-                class="bg-slate-900 border border-slate-700/80 px-3.5 py-2 rounded-lg flex items-center gap-2 text-xs font-semibold text-slate-200 shadow-sm">
-                <span class="text-emerald-400 text-base">🛡️</span> Bahan Tebal, Rapi & Anti Karat
+            <div class="flex gap-2 overflow-x-auto pb-2">
+                <img src="jendela1.jpg"
+                    class="thumb-img w-20 h-20 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-blue-500 thumbnail-active"
+                    onclick="setSlide(0)">
+                <img src="jendela2.jpg"
+                    class="thumb-img w-20 h-20 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-blue-500"
+                    onclick="setSlide(1)">
+                <img src="jendela3.jpg"
+                    class="thumb-img w-20 h-20 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-blue-500"
+                    onclick="setSlide(2)">
+                <img src="jendela4.jpg"
+                    class="thumb-img w-20 h-20 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-blue-500"
+                    onclick="setSlide(3)">
             </div>
         </div>
-    </header>
 
-    <!-- Main Content -->
-    <main class="max-w-6xl mx-auto px-4 mt-8">
-        <div class="flex justify-between items-center mb-6">
-            <h2 class="text-xl font-bold text-white border-l-4 border-amber-500 pl-3">Pilihan Produk & Layanan</h2>
-            <span class="text-xs text-slate-400 bg-slate-800 px-3 py-1 rounded-full">3 Layanan tersedia</span>
-        </div>
+        <!-- Kalkulator Estimasi Harga -->
+        <div class="bg-slate-800 p-6 rounded-xl shadow-lg">
+            <h2 class="text-xl font-semibold mb-4">Kalkulator Estimasi Harga</h2>
 
-        <!-- Product Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-            <!-- Card 1: Kusen 3 Inch (Rp 225rb/mtr) -->
-            <div
-                class="bg-slate-800 border border-slate-700 rounded-xl overflow-hidden shadow-lg flex flex-col justify-between">
+            <form onsubmit="calculate(event); return false;" class="space-y-4">
                 <div>
-                    <div class="relative h-48 overflow-hidden bg-slate-950">
-                        <span
-                            class="absolute top-3 left-3 bg-amber-500 text-slate-950 font-bold text-xs px-2.5 py-1 rounded z-10">TERLARIS</span>
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80"
-                            alt="Kusen 3 Inch" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-5">
-                        <span class="text-xs font-semibold text-amber-500 uppercase tracking-wider">Kusen Standar</span>
-                        <h3 class="text-lg font-bold text-white mt-1">Kusen Aluminium 3 Inch</h3>
-                        <p class="text-xs text-slate-400 mt-2">Kusen aluminium profil 3 inch cocok untuk pintu & jendela
-                            rumah tinggal. Harga Rp 225.000 / meter.</p>
-
-                        <div class="mt-4 bg-slate-900/80 p-3 rounded-lg border border-slate-700/50">
-                            <label class="block text-xs font-bold text-slate-300 mb-1">SIMULASI (METER /
-                                LONJOR):</label>
-                            <div class="flex items-center">
-                                <input type="number" id="qty1" value="1" step="0.1" min="0.1" oninput="calculate()"
-                                    class="w-full bg-slate-800 border border-slate-600 rounded px-3 py-1.5 text-sm text-white focus:outline-none focus:border-amber-500">
-                                <span class="ml-2 text-xs text-slate-400">mtr</span>
-                            </div>
-                        </div>
-                    </div>
+                    <label class="block text-sm font-medium mb-1">Pilih Jenis / Kategori:</label>
+                    <select id="tipeAluminium"
+                        class="w-full bg-slate-700 border border-slate-600 rounded-lg p-2.5 text-white">
+                        <option value="1">3 Inch (Rp 225.000 / meter)</option>
+                        <option value="2">4 Inch Standar (Rp 275.000 / meter)</option>
+                        <option value="3">Bending All-in (Rp 275.000 / meter)</option>
+                    </select>
                 </div>
-                <div class="p-5 pt-0 flex justify-between items-center mt-4">
-                    <div>
-                        <span class="text-xs text-slate-400 block">Total Estimasi:</span>
-                        <span id="total1" class="text-lg font-bold text-amber-400">Rp 225.000</span>
-                    </div>
-                    <a id="btnWa1" href="#" target="_blank"
-                        class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs px-4 py-2.5 rounded-lg transition">Pesan
-                        WA</a>
-                </div>
-            </div>
 
-            <!-- Card 2: Kusen 4 Inch & Bending All-In (Rp 275rb/mtr) -->
-            <div
-                class="bg-slate-800 border border-slate-700 rounded-xl overflow-hidden shadow-lg flex flex-col justify-between">
                 <div>
-                    <div class="relative h-48 overflow-hidden bg-slate-950">
-                        <span
-                            class="absolute top-3 left-3 bg-blue-500 text-white font-bold text-xs px-2.5 py-1 rounded z-10">PREMIUM
-                            / BENDING</span>
-                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=600&q=80"
-                            alt="Kusen Aluminium 4 Inch" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-5">
-                        <span class="text-xs font-semibold text-blue-400 uppercase tracking-wider">Kusen Tebal &
-                            Bending</span>
-                        <h3 class="text-lg font-bold text-white mt-1">Kusen Aluminium 4 Inch</h3>
-                        <p class="text-xs text-slate-400 mt-2">Harga Rp 275.000 / meter (Sudah all-in include bending
-                            lengkung & finishing coating, tinggal terima beres).</p>
+                    <label class="block text-sm font-medium mb-1">Panjang / Volume (meter):</label>
+                    <input type="number" id="volume" step="0.1" placeholder="Contoh: 2.5"
+                        class="w-full bg-slate-700 border border-slate-600 rounded-lg p-2.5 text-white" required>
+                </div>
 
-                        <div class="mt-4 bg-slate-900/80 p-3 rounded-lg border border-slate-700/50">
-                            <label class="block text-xs font-bold text-slate-300 mb-1">SIMULASI (METER /
-                                LONJOR):</label>
-                            <div class="flex items-center">
-                                <input type="number" id="qty2" value="1.2" step="0.1" min="0.1" oninput="calculate()"
-                                    class="w-full bg-slate-800 border border-slate-600 rounded px-3 py-1.5 text-sm text-white focus:outline-none focus:border-amber-500">
-                                <span class="ml-2 text-xs text-slate-400">mtr</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-5 pt-0 flex justify-between items-center mt-4">
-                    <div>
-                        <span class="text-xs text-slate-400 block">Total Estimasi:</span>
-                        <span id="total2" class="text-lg font-bold text-amber-400">Rp 330.000</span>
-                    </div>
-                    <a id="btnWa2" href="#" target="_blank"
-                        class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs px-4 py-2.5 rounded-lg transition">Pesan
-                        WA</a>
-                </div>
+                <button type="submit"
+                    class="w-full bg-blue-600 hover:bg-blue-500 text-white font-medium py-2.5 rounded-lg transition-colors">
+                    Hitung Estimasi & Pesan
+                </button>
+            </form>
+
+            <div id="hasil Kalkulator" class="mt-6 p-4 bg-slate-700 rounded-lg hidden">
+                <p id="teksHasil" class="mb-3 text-lg font-medium"></p>
+                <a id="btnWa" href="#" target="_blank"
+                    class="inline-block bg-green-600 hover:bg-green-500 text-white font-medium px-4 py-2 rounded-lg transition-colors">
+                    Kirim Pesanan via WhatsApp
+                </a>
             </div>
-
-            <!-- Card 3: Spesial Bending Lengkung (INPUT UKURAN CM, MINIMAL 50x30 CM) -->
-            <div
-                class="bg-slate-800 border border-slate-700 rounded-xl overflow-hidden shadow-lg flex flex-col justify-between">
-                <div>
-                    <!-- Slider Main Image -->
-                    <div class="relative h-48 overflow-hidden bg-slate-950 group cursor-pointer" onclick="openModal()">
-                        <span
-                            class="absolute top-3 left-3 bg-amber-500 text-slate-950 font-bold text-xs px-2.5 py-1 rounded z-10">FOTO
-                            ASLI WORKSHOP</span>
-
-                        <img id="mainImg" src="jendela.jpg1" alt="Foto Workshop"
-                            class="w-full h-full object-cover transition-all duration-300 group-hover:scale-105">
-
-                        <!-- Hover Zoom Hint -->
-                        <div
-                            class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-xs text-white font-bold">
-                            🔍 Klik untuk Memperbesar
-                        </div>
-
-                        <!-- Slide Arrows -->
-                        <button onclick="event.stopPropagation(); changeSlide(-1)"
-                            class="absolute left-2 top-1/2 -translate-y-1/2 bg-slate-900/70 hover:bg-slate-900 text-white p-1.5 rounded-full z-10">
-                            ❮
-                        </button>
-                        <button onclick="event.stopPropagation(); changeSlide(1)"
-                            class="absolute right-2 top-1/2 -translate-y-1/2 bg-slate-900/70 hover:bg-slate-900 text-white p-1.5 rounded-full z-10">
-                            ❯
-                        </button>
-                    </div>
-
-                    <div class="p-5">
-                        <!-- Thumbnails Gallery -->
-                        <span class="text-xs text-slate-400 block mb-1.5 font-medium">Dokumentasi Workshop (Klik
-                            Foto):</span>
-                        <div class="grid grid-cols-4 gap-2 mb-4">
-                            <img src="jendela.jpg1" onclick="setSlide(0)"
-                                class="thumb-img h-12 w-full object-cover rounded border-2 border-transparent opacity-60 cursor-pointer hover:opacity-100 transition thumbnail-active">
-                            <img src="jendela.jpg2" onclick="setSlide(1)"
-                                class="thumb-img h-12 w-full object-cover rounded border-2 border-transparent opacity-60 cursor-pointer hover:opacity-100 transition">
-                            <img src="jendela.jpg3" onclick="setSlide(2)"
-                                class="thumb-img h-12 w-full object-cover rounded border-2 border-transparent opacity-60 cursor-pointer hover:opacity-100 transition">
-                            <img src="jendela.jpg4" onclick="setSlide(3)"
-                                class="thumb-img h-12 w-full object-cover rounded border-2 border-transparent opacity-60 cursor-pointer hover:opacity-100 transition">
-                        </div>
-
-                        <span class="text-xs font-semibold text-amber-500 uppercase tracking-wider">Spesial Bending
-                            Lengkung</span>
-                        <h3 class="text-lg font-bold text-white mt-1">Kusen 4 Inch Bending All-In</h3>
-                        <p class="text-xs text-slate-400 mt-1">Min. pemesanan ukuran 50x30 cm (Rp 275.000/m, include
-                            coating & jepitan mesin).</p>
-
-                        <!-- Input Ukuran CM (Panjang & Tinggi) -->
-                        <div class="mt-4 bg-slate-900/80 p-3 rounded-lg border border-slate-700/50">
-                            <label class="block text-xs font-bold text-slate-300 mb-2">SIMULASI UKURAN (CM):</label>
-                            <div class="grid grid-cols-2 gap-2">
-                                <div>
-                                    <span class="text-[10px] text-slate-400 block mb-0.5">Panjang (Min 50cm):</span>
-                                    <div class="flex items-center">
-                                        <input type="number" id="panjang3" value="50" min="1" oninput="calculate()"
-                                            class="w-full bg-slate-800 border border-slate-600 rounded px-2 py-1 text-sm text-white focus:outline-none focus:border-amber-500">
-                                        <span class="ml-1 text-xs text-slate-400">cm</span>
-                                    </div>
-                                </div>
-                                <div>
-                                    <span class="text-[10px] text-slate-400 block mb-0.5">Tinggi (Min 30cm):</span>
-                                    <div class="flex items-center">
-                                        <input type="number" id="tinggi3" value="30" min="1" oninput="calculate()"
-                                            class="w-full bg-slate-800 border border-slate-600 rounded px-2 py-1 text-sm text-white focus:outline-none focus:border-amber-500">
-                                        <span class="ml-1 text-xs text-slate-400">cm</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mt-2 text-[11px] text-amber-400/90 font-medium">
-                                Total Meter (P + T): <span id="meterBending">0.80</span> meter
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-5 pt-0 flex justify-between items-center mt-2">
-                    <div>
-                        <span class="text-xs text-slate-400 block">Total Estimasi:</span>
-                        <span id="total3" class="text-lg font-bold text-amber-400">Rp 220.000</span>
-                    </div>
-                    <a id="btnWa3" href="#" target="_blank"
-                        class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs px-4 py-2.5 rounded-lg transition">Pesan
-                        WA</a>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Catatan Transparansi & Estimasi Pengerjaan -->
-        <div
-            class="mt-8 bg-slate-800/60 border border-slate-700/80 rounded-xl p-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-            <div>
-                <h4 class="text-sm font-bold text-white flex items-center gap-2">
-                    <span>ℹ️</span> Informasi Pemesanan & Pengerjaan Custom
-                </h4>
-                <p class="text-xs text-slate-400 mt-1 leading-relaxed">
-                    Estimasi waktu pengerjaan custom & bending sekitar <strong class="text-amber-400">± 7 hari
-                        kerja</strong> siap kirim. Untuk kusen lengkung (arch), minimum pemesanan ukuran adalah 50x30
-                    cm. Bingung hitung ukuran? Langsung konsultasi gratis!
-                </p>
-            </div>
-        </div>
-    </main>
-
-    <!-- Floating WhatsApp Button -->
-    <a id="floatingWa" href="#" target="_blank"
-        class="fixed bottom-5 right-5 z-40 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs md:text-sm px-4 py-3 rounded-full shadow-lg shadow-emerald-950/50 flex items-center gap-2 transition transform hover:scale-105">
-        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-            <path
-                d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z" />
-        </svg>
-        <span>Tanya Ukuran / Konsultasi</span>
-    </a>
-
-    <!-- Modal Popup Zoom Foto -->
-    <div id="imageModal" class="fixed inset-0 bg-black/90 hidden z-50 flex items-center justify-center p-4"
-        onclick="closeModal()">
-        <div class="relative max-w-4xl w-full max-h-[90vh] flex flex-col items-center">
-            <button onclick="closeModal()"
-                class="absolute -top-10 right-0 text-white text-2xl font-bold hover:text-amber-500">✕ Tutup</button>
-            <img id="modalImg" src="" class="max-w-full max-h-[80vh] object-contain rounded-lg border border-slate-700">
-            <p class="text-slate-300 text-xs mt-3">Klik di mana saja untuk menutup</p>
         </div>
     </div>
 
-    <!-- JavaScript Logika Kalkulator -->
+    <!-- Modal Gambar -->
+    <div id="imageModal" class="fixed inset-0 bg-black/90 hidden z-50 flex items-center justify-center p-4"
+        onclick="closeModal()">
+        <div class="relative max-w-4xl w-full">
+            <img id="modalImg" src="" class="w-full max-h-[85vh] object-contain rounded-lg">
+        </div>
+    </div>
+
+    <!-- JavaScript Logika & Kalkulator -->
     <script>
         // GANTI NOMOR WHATSAPP LU DI SINI (format 62...)
         const phone = "6281314362685";
@@ -285,71 +108,61 @@
 
             thumbs.forEach((t, i) => {
                 if (i === currentSlide) {
-                    t.classList.add("thumbnail-active");
+                    t.classList.add("border-blue-500");
+                    t.classList.remove("border-transparent");
                 } else {
-                    t.classList.remove("thumbnail-active");
+                    t.classList.remove("border-blue-500");
+                    t.classList.add("border-transparent");
                 }
             });
         }
 
-        function changeSlide(direction) {
-            currentSlide = (currentSlide + direction + photos.length) % photos.length;
-            setSlide(currentSlide);
-        }
-
-        function openModal() {
+        function openModal(src) {
             const modal = document.getElementById("imageModal");
             const modalImg = document.getElementById("modalImg");
-            modalImg.src = photos[currentSlide];
+            modalImg.src = src;
             modal.classList.remove("hidden");
         }
 
         function closeModal() {
-            document.getElementById("imageModal").classList.add("hidden");
+            const modal = document.getElementById("imageModal");
+            modal.classList.add("hidden");
         }
 
         function calculate(event) {
-            if (event) event.preventDefault(); // <-- Tambahin ini biar gak mental
-            const price1 = 225000; // 3 Inch per meter
-            const price2 = 275000; // 4 Inch standar per meter
-            const price3 = 275000; // Bending All-in per meter 
-            // Card 1 & 2 (Meteran)
-            const q1 = Math.max(0.1, parseFloat(document.getElementById("qty1").value) || 1);
-            const q2 = Math.max(0.1, parseFloat(document.getElementById("qty2").value) || 1);
+            if (event) event.preventDefault();
 
-            // Card 3 (Bending: Ukuran P & L dalam cm, minimal 50 x 30 cm)
-            let pInput = parseFloat(document.getElementById("panjang3").value) || 50;
-            let lInput = parseFloat(document.getElementById("tinggi3").value) || 30;
+            const tipe = document.getElementById("tipeAluminium").value;
+            const volume = parseFloat(document.getElementById("volume").value) || 0;
 
-            // Batasi minimal 50 cm untuk panjang dan 30 cm untuk tinggi
-            let p = Math.max(50, pInput);
-            let l = Math.max(30, lInput);
+            let hargaPerMeter = 225000;
+            let namaTipe = "3 Inch";
 
-            // Hitung meter (Panjang + Tinggi) / 100
-            let totalMeterBending = (p + l) / 100;
+            if (tipe === "2") {
+                hargaPerMeter = 275000;
+                namaTipe = "4 Inch Standar";
+            } else if (tipe === "3") {
+                hargaPerMeter = 275000;
+                namaTipe = "Bending All-in";
+            }
 
-            const tot1 = q1 * price1;
-            const tot2 = q2 * price2;
-            const tot3 = totalMeterBending * price3;
+            const totalHarga = hargaPerMeter * volume;
 
-            document.getElementById("total1").innerText = "Rp " + Math.round(tot1).toLocaleString("id-ID");
-            document.getElementById("total2").innerText = "Rp " + Math.round(tot2).toLocaleString("id-ID");
-            document.getElementById("total3").innerText = "Rp " + Math.round(tot3).toLocaleString("id-ID");
-            document.getElementById("meterBending").innerText = totalMeterBending.toFixed(2);
+            const formatRupiah = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(totalHarga);
 
-            // Link WhatsApp Pesanan
-            document.getElementById("btnWa1").href = `https://wa.me/${phone}?text=${encodeURIComponent(`Halo, saya mau pesan Kusen Aluminium 3 Inch sebanyak ${q1} meter (Estimasi: Rp ${Math.round(tot1).toLocaleString("id-ID"}).`)}`;
-            document.getElementById("btnWa2").href = `https://wa.me/${phone}?text=${encodeURIComponent(`Halo, saya mau pesan Kusen Aluminium 4 Inch sebanyak ${q2} meter (Estimasi: Rp ${Math.round(tot2).toLocaleString("id-ID"}).`)}`;
-            document.getElementById("btnWa3").href = `https://wa.me/${phone}?text=${encodeURIComponent(`Halo, saya mau pesan Kusen 4 Inch Bending Lengkung ukuran P: ${p}cm x T: ${l}cm (Total: ${totalMeterBending.toFixed(2)} meter, Estimasi: Rp ${Math.round(tot3).toLocaleString("id-ID"}).`)}`;
+            // Tampilkan hasil
+            const hasilDiv = document.getElementById("hasil Kalkulator");
+            const teksHasil = document.getElementById("teksHasil");
+            const btnWa = document.getElementById("btnWa");
 
-            // Link Floating WA
-            document.getElementById("floatingWa").href = `https://wa.me/${phone}?text=${encodeURIComponent(`Halo, saya mau tanya-tanya dan konsultasi ukuran kusen aluminium / bending lengkung.`)}`;
+            teksHasil.innerHTML = `Estimasi Kusen <b>${namaTipe}</b> (${volume} m): <b class="text-green-400">${formatRupiah}</b>`;
+
+            const pesan = `Halo, saya mau pesan kusen aluminium tipe ${namaTipe} dengan ukuran ${volume} meter. Total estimasi harga: ${formatRupiah}. Mohon infonya lebih lanjut.`;
+            btnWa.href = `https://wa.me/${phone}?text=${encodeURIComponent(pesan)}`;
+
+            hasilDiv.classList.remove("hidden");
         }
-
-        // Run on init
-        calculate();
     </script>
 </body>
 
 </html>
-<!-- update -->
