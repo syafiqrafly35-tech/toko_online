@@ -7,6 +7,8 @@
     <title>Katalog & Kalkulator Kusen Aluminium</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome untuk ikon WhatsApp -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body class="bg-slate-900 text-slate-100 min-h-screen font-sans pb-20">
@@ -71,11 +73,18 @@
                 <p id="teksHasil" class="mb-3 text-lg font-medium"></p>
                 <a id="btnWa" href="#" target="_blank"
                     class="inline-block bg-green-600 hover:bg-green-500 text-white font-medium px-4 py-2 rounded-lg transition-colors">
-                    Kirim Pesanan via WhatsApp
+                    <i class="fab fa-whatsapp mr-2"></i> Kirim Pesanan via WhatsApp
                 </a>
             </div>
         </div>
     </div>
+
+    <!-- TOMBOL WHATSAPP MENGAMBANG (FLOATING BUTTON) -->
+    <a id="floatingWa" href="#" target="_blank"
+        class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl text-3xl z-50 transition-transform hover:scale-110"
+        title="Konsultasi via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <!-- Modal Gambar -->
     <div id="imageModal" class="fixed inset-0 bg-black/90 hidden z-50 flex items-center justify-center p-4"
@@ -89,6 +98,13 @@
     <script>
         // GANTI NOMOR WHATSAPP LU DI SINI (format 62...)
         const phone = "6281314362685";
+
+        // Otomatis pasang link WhatsApp ke tombol mengambang saat halaman dimuat
+        document.addEventListener("DOMContentLoaded", function () {
+            const floatingWa = document.getElementById("floatingWa");
+            const pesanKonsul = "Halo, saya ingin berkonsultasi mengenai pemesanan kusen aluminium.";
+            floatingWa.href = `https://wa.me/${phone}?text=${encodeURIComponent(pesanKonsul)}`;
+        });
 
         const photos = [
             "jendela1.jpg",
@@ -140,14 +156,17 @@
 
             if (tipe === "2") {
                 hargaPerMeter = 275000;
-                namaTipe = "4 Inch Standar";
+                namaTippy = "4 Inch Standar";
             } else if (tipe === "3") {
                 hargaPerMeter = 275000;
                 namaTipe = "Bending All-in";
             }
 
-            const totalHarga = hargaPerMeter * volume;
+            if (tipe === "2") {
+                namaTipe = "4 Inch Standar";
+            }
 
+            const totalHarga = hargaPerMeter * volume;
             const formatRupiah = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(totalHarga);
 
             // Tampilkan hasil
