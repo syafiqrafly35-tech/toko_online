@@ -29,7 +29,7 @@
             biayanya secara transparan!
         </p>
 
-        <!-- 3 Badge Keunggulan (Estimasi 7 Hari) -->
+        <!-- 3 Badge Keunggulan -->
         <div class="flex flex-wrap justify-center gap-3 mt-6 max-w-3xl mx-auto">
             <div
                 class="bg-slate-900 border border-slate-700/80 px-3.5 py-2 rounded-lg flex items-center gap-2 text-xs font-semibold text-slate-200 shadow-sm">
@@ -207,7 +207,7 @@
                                 </div>
                             </div>
                             <div class="mt-2 text-[11px] text-amber-400/90 font-medium">
-                                Estimasi Keliling: <span id="meterBending">1.6</span> meter
+                                Total Meter (P + T): <span id="meterBending">0.80</span> meter
                             </div>
                         </div>
                     </div>
@@ -215,7 +215,7 @@
                 <div class="p-5 pt-0 flex justify-between items-center mt-2">
                     <div>
                         <span class="text-xs text-slate-400 block">Total Estimasi:</span>
-                        <span id="total3" class="text-lg font-bold text-amber-400">Rp 440.000</span>
+                        <span id="total3" class="text-lg font-bold text-amber-400">Rp 220.000</span>
                     </div>
                     <a id="btnWa3" href="#" target="_blank"
                         class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs px-4 py-2.5 rounded-lg transition">Pesan
@@ -225,7 +225,7 @@
 
         </div>
 
-        <!-- Catatan Transparansi & Estimasi Pengerjaan 7 Hari -->
+        <!-- Catatan Transparansi & Estimasi Pengerjaan -->
         <div
             class="mt-8 bg-slate-800/60 border border-slate-700/80 rounded-xl p-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
             <div>
@@ -325,8 +325,8 @@
             let p = Math.max(50, pInput);
             let l = Math.max(30, lInput);
 
-            // Hitung keliling meter: (2 * (P + L)) / 100
-            let totalMeterBending = (2 * (p + l)) / 100;
+            // Hitung meter (Panjang + Tinggi) / 100
+            let totalMeterBending = (p + l) / 100;
 
             const tot1 = q1 * price1;
             const tot2 = q2 * price2;
@@ -338,9 +338,9 @@
             document.getElementById("meterBending").innerText = totalMeterBending.toFixed(2);
 
             // Link WhatsApp Pesanan
-            document.getElementById("btnWa1").href = `https://wa.me/${phone}?text=${encodeURIComponent(`Halo, saya mau pesan Kusen Aluminium 3 Inch sebanyak ${q1} meter (Estimasi: Rp ${Math.round(tot1).toLocaleString("id-ID")}).`)}`;
-            document.getElementById("btnWa2").href = `https://wa.me/${phone}?text=${encodeURIComponent(`Halo, saya mau pesan Kusen Aluminium 4 Inch sebanyak ${q2} meter (Estimasi: Rp ${Math.round(tot2).toLocaleString("id-ID")}).`)}`;
-            document.getElementById("btnWa3").href = `https://wa.me/${phone}?text=${encodeURIComponent(`Halo, saya mau pesan Kusen 4 Inch Bending Lengkung ukuran P: ${p}cm x T: ${l}cm (Total Keliling: ${totalMeterBending.toFixed(2)} meter, Estimasi: Rp ${Math.round(tot3).toLocaleString("id-ID")}).`)}`;
+            document.getElementById("btnWa1").href = `https://wa.me/${phone}?text=${encodeURIComponent(`Halo, saya mau pesan Kusen Aluminium 3 Inch sebanyak ${q1} meter (Estimasi: Rp ${Math.round(tot1).toLocaleString("id-ID"}).`)}`;
+            document.getElementById("btnWa2").href = `https://wa.me/${phone}?text=${encodeURIComponent(`Halo, saya mau pesan Kusen Aluminium 4 Inch sebanyak ${q2} meter (Estimasi: Rp ${Math.round(tot2).toLocaleString("id-ID"}).`)}`;
+            document.getElementById("btnWa3").href = `https://wa.me/${phone}?text=${encodeURIComponent(`Halo, saya mau pesan Kusen 4 Inch Bending Lengkung ukuran P: ${p}cm x T: ${l}cm (Total: ${totalMeterBending.toFixed(2)} meter, Estimasi: Rp ${Math.round(tot3).toLocaleString("id-ID"}).`)}`;
 
             // Link Floating WA
             document.getElementById("floatingWa").href = `https://wa.me/${phone}?text=${encodeURIComponent(`Halo, saya mau tanya-tanya dan konsultasi ukuran kusen aluminium / bending lengkung.`)}`;
